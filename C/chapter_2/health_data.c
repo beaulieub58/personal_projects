@@ -58,11 +58,6 @@ int main(void){
     totalBreathesTaken = breathesPerMinute * userAgeMinutes;
     printf("The number of breaths you've taken throughout your lifetime is approximately %d.\n",totalBreathesTaken);
 
-
-
-
-
-
     printf("\n");
     getchar();
     return 0;
