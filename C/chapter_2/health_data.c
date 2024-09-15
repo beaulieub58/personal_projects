@@ -36,13 +36,13 @@ int main(void){
     printf("You are %d days old.\n", userAgeDays);
    
     userAgeMinutes = userAgeDays * HOURS_IN_DAYS * MINUTES_IN_HOUR;   // 24 hours/day, 60 minutes/hour
-    printf("You are %d minutes old.\n", userAgeMinutes);   
+    printf("You are approximately %d minutes old.\n", userAgeMinutes);   
 
     userAgeSeconds = userAgeMinutes * SECONDS_IN_MINUTES;
-    printf("You are %d seconds old.\n", userAgeSeconds);
+    printf("You are approximately %d seconds old.\n", userAgeSeconds);
 
     totalHeartbeats = userAgeMinutes * AVG_BEATS_PER_MINUTE;
-    printf("Your heart has beat %d times.\n", totalHeartbeats);
+    printf("Your heart has beat approximately %d times.\n", totalHeartbeats);
 
     totalSneezes = userAgeDays * SNEEZES_PER_DAY;
     printf("You have sneezed approximately %d times.\n", totalSneezes);
