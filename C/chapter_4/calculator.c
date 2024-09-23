@@ -61,4 +61,8 @@ int main(void) {
         output = division(input_1, input_2);
     }
 
+    printf("%lf",output);
+
+    getchar();
+
 }
