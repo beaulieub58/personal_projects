@@ -61,7 +61,7 @@ int main(void) {
         output = division(input_1, input_2);
     }
 
-    printf("%.2lf",output);
+    printf("%.2lf\n",output);
 
     return 0;
 
