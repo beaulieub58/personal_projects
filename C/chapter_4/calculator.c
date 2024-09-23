@@ -32,9 +32,9 @@ int main(void) {
 
     printf("Select Number:\n1. For Addition\n2. For Subtraction\n3. For Multiplication\n4. For Division\n");
     scanf("%d", &selection);
-    printf("Enter your first input:\n");
+    printf("Enter your first input in decimal format:\n");
     scanf("%lf", &input_1);
-    printf("Enter your second input:\n");
+    printf("Enter your second input in decimal format:\n");
     scanf("%lf", &input_2);
 
     if (selection == 1) {
@@ -61,8 +61,8 @@ int main(void) {
         output = division(input_1, input_2);
     }
 
-    printf("%lf",output);
+    printf("%.2lf",output);
 
-    getchar();
+    return 0;
 
 }
