@@ -33,9 +33,9 @@ int main(void) {
     printf("Select Number:\n 1. For Addition\n2. For Subtraction\n3. For Multiplication\n 4. For Division\n");
     scanf("%d", &selection);
     printf("Enter your first input:\n");
-    scanf("%d", &input_1);
+    scanf("%lf", &input_1);
     printf("Enter your second input:\n");
-    scanf("%d", &input_2);
+    scanf("%lf", &input_2);
 
     if (selection == 1) {
         
@@ -60,7 +60,5 @@ int main(void) {
 
         output = division(input_1, input_2);
     }
-
-
 
 }
