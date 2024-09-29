@@ -30,7 +30,7 @@ int main(void) {
     double input_2;
     double output;
 
-    printf("Select Number:\n1. For Addition\n2. For Subtraction\n3. For Multiplication\n4. For Division\n");
+    printf("Select Number:\n1. For Addition\n2. For Subtraction\n3. For Multiplication\n4. For Division\nNote: type the number as an intger.\n");
     scanf("%d", &selection);
     printf("Enter your first input in decimal format:\n");
     scanf("%lf", &input_1);
