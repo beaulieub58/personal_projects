@@ -1,15 +1,15 @@
-  b
- bbb
-bbbbb
+  c
+ ccc
+ccccc
 
-bbbbb
-b   b
-b   b
-bbbbb
+ccccc
+c   c
+c   c
+ccccc
 
-  b
- bbb
-bbbbb
- bbb
-  b
+  c
+ ccc
+ccccc
+ ccc
+  c
 
