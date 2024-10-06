@@ -153,6 +153,8 @@ int main(void) {
    int die_2 = 0;
    int rollTotal = 0;
 
+   printf("\n");
+
    while (numRolls > 0) {
 
     printf("Enter the number of rolls. Entering 0 will end the program and print results.\n");
