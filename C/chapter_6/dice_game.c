@@ -153,6 +153,8 @@ int main(void) {
    int die_2 = 0;
    int rollTotal = 0;
 
+   srand(time(0));
+
    printf("\n");
 
    while (numRolls > 0) {
