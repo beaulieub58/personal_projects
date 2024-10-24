@@ -137,7 +137,7 @@ void printDbls(double *dblPtr, int dblCount){
 	printf("\nDbls: ");
 	for (i = 0; i < dblCount; ++i) {
 
-		printf("%lf ",dblPtr[i]);
+		printf("%.2lf ",dblPtr[i]);
 	}
 }
 
