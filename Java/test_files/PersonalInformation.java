@@ -1,5 +1,6 @@
+//local directory
 package Java.test_files;
-public class personal_information {
+public class PersonalInformation {
 
     //use system.out.println to print hardcoded values//
 
