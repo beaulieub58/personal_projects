@@ -19,6 +19,10 @@ public class ForLoop {
 
         System.out.println(inputArray[0]);
 
+        scnr.close();
+
     }
+
+  
     
 }
