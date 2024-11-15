@@ -1,5 +1,5 @@
 //local directory
-package Java.test_files;
+package Java.Homework;
 public class PersonalInformation {
 
     //use system.out.println to print hardcoded values//

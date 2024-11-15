@@ -1,5 +1,5 @@
 //local directory
-package Java.test_files;
+package Java.Homework;
 //import scanner library
 import java.util.Scanner;
 
