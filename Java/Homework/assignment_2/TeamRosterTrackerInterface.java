@@ -129,6 +129,9 @@ public class TeamRosterTrackerInterface {
                     System.out.println("Enter a text file name where the roster will be loaded from, including .txt ending: ");
                     String fileNameLoad = scnr.next();
                     newRoster.loadRosterFromFile(fileNameLoad);
+                    //test array was loaded correctly
+                    System.out.println("The first player in your roster is: ");
+                    System.out.println(newRoster.getPlayer(0)); 
                     
                     break;
                 
@@ -152,7 +155,7 @@ public class TeamRosterTrackerInterface {
             
         }
 
-            
+        
     }
 
 }
