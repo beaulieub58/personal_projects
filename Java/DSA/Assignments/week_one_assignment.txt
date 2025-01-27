@@ -1,0 +1,38 @@
+Question 
+2.1:
+Order the following functions by growth rate: N, SQRT(N), N^(1.5), N^(2), N(logN), Nlog(logN), (Nlog^2)N, Nlog(N^2), 2/N, 2^N, 2^(N/2), 37, N^(2)logN, N^(3). 
+Indicate which functions grow at the same rate.
+
+1. 37
+2. 2/N
+3. SQRT(N)
+4. N
+5. Nlog(logN)
+6. N(logN)
+7. Nlog(N^2)
+8. (Nlog^2)N
+9. N^(1.5)
+10. N^2
+11. N^2(logN)
+12. N^3
+13. 2^(N/2)
+14. 2^N
+
+With 10000 as N (scratch work with base log 10 instead of 2):
+
+1. 37;
+2. 1/5000 (will grow larger than constant with high enough N);
+3. 100
+4. 10000
+5. ~477 (will grow larger than constant with high enough N)
+6. 40000
+7. 80000
+8. 160000
+9. ~31622776
+10. 100000000
+11. 400000000
+12. 1000000000000
+13. Undefined
+14. Undefined
+              
+                

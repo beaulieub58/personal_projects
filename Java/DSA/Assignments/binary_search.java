@@ -30,7 +30,7 @@ public class binary_search {
     public static void main(String[] args) {
         int[] list = {1,2,3,4,5,6,7};
         int lower_boundary = 0;
-        System.out.println(binarySearch(list, lower_boundary, list.length - 1,4));
+        System.out.println(binarySearch(list, lower_boundary, list.length - 1,8));
     }
     }
 
