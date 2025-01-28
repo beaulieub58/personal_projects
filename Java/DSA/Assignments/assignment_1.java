@@ -63,35 +63,109 @@ public class assignment_1 {
 
         Scanner scnr = new Scanner(System.in);
 
-        int number = scnr.nextInt();
+        int[] numbers = new int[3];
 
-        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < numbers.length; ++i) {
+            System.out.println("Enter the first runtime N:");
+            numbers[i] = scnr.nextInt();
+        }
 
-        twoSevenBTwo(number);
+        System.out.println("The run times of the first algorithm are as follows: ");
+        long startTime = System.nanoTime();
 
-        long endTime = System.currentTimeMillis();
+        twoSevenBTwo(numbers[0]);
+
+        long endTime = System.nanoTime();
 
         long timeDifference = endTime - startTime;
 
         System.out.println("The calculated runtime for question 2.7b2 is: ");
         System.out.println(timeDifference);
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
 
-        twoSevenBFour(number);
+        twoSevenBFour(numbers[0]);
 
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
 
         timeDifference = endTime - startTime;
 
         System.out.println("The calculated runtime for question 2.7b4 is: ");
         System.out.println(timeDifference);
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
 
-        twoSevenBSix(number);
+        twoSevenBSix(numbers[0]);
 
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+
+        timeDifference = endTime - startTime;
+
+        System.out.println("The calculated runtime for question 2.7b6 is: ");
+        System.out.println(timeDifference);
+
+        System.out.println("The run times of the second algorithm are as follows: ");
+        startTime = System.nanoTime();
+
+        twoSevenBTwo(numbers[1]);
+
+        endTime = System.nanoTime();
+
+        timeDifference = endTime - startTime;
+
+        System.out.println("The calculated runtime for question 2.7b2 is: ");
+        System.out.println(timeDifference);
+
+        startTime = System.nanoTime();
+
+        twoSevenBFour(numbers[1]);
+
+        endTime = System.nanoTime();
+
+        timeDifference = endTime - startTime;
+
+        System.out.println("The calculated runtime for question 2.7b4 is: ");
+        System.out.println(timeDifference);
+
+        startTime = System.nanoTime();
+
+        twoSevenBSix(numbers[1]);
+
+        endTime = System.nanoTime();
+
+        timeDifference = endTime - startTime;
+
+        System.out.println("The calculated runtime for question 2.7b6 is: ");
+        System.out.println(timeDifference);
+
+        System.out.println("The run times of the third algorithm are as follows: ");
+        startTime = System.nanoTime();
+
+        twoSevenBTwo(numbers[2]);
+
+        endTime = System.nanoTime();
+
+        timeDifference = endTime - startTime;
+
+        System.out.println("The calculated runtime for question 2.7b2 is: ");
+        System.out.println(timeDifference);
+
+        startTime = System.nanoTime();
+
+        twoSevenBFour(numbers[2]);
+
+        endTime = System.nanoTime();
+
+        timeDifference = endTime - startTime;
+
+        System.out.println("The calculated runtime for question 2.7b4 is: ");
+        System.out.println(timeDifference);
+
+        startTime = System.nanoTime();
+
+        twoSevenBSix(numbers[2]);
+
+        endTime = System.nanoTime();
 
         timeDifference = endTime - startTime;
 

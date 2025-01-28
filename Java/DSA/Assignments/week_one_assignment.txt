@@ -1,38 +1,159 @@
-Question 
-2.1:
+Ben Beaulieu
+Homework Assignment 1
+1-26-2024
+
+Question 2.1:
 Order the following functions by growth rate: N, SQRT(N), N^(1.5), N^(2), N(logN), Nlog(logN), (Nlog^2)N, Nlog(N^2), 2/N, 2^N, 2^(N/2), 37, N^(2)logN, N^(3). 
 Indicate which functions grow at the same rate.
 
-1. 37
-2. 2/N
-3. SQRT(N)
-4. N
-5. Nlog(logN)
-6. N(logN)
-7. Nlog(N^2)
-8. (Nlog^2)N
-9. N^(1.5)
-10. N^2
-11. N^2(logN)
-12. N^3
-13. 2^(N/2)
-14. 2^N
+1) 2/N
+2) 37
+3) SQRT(N)
+4) N
+5) Nlog(logN)
+6) N(logN)
+7) N(log(N^2))
+8) (Nlog^2)N
+9) N^(1.5)
+10) N^2
+11) N^2(logN)
+12) N^3
+13) 2^(N/2)
+14) 2^N
 
 With 10000 as N (scratch work with base log 10 instead of 2):
 
-1. 37;
-2. 1/5000 (will grow larger than constant with high enough N);
-3. 100
-4. 10000
-5. ~477 (will grow larger than constant with high enough N)
-6. 40000
-7. 80000
-8. 160000
-9. ~31622776
-10. 100000000
-11. 400000000
-12. 1000000000000
-13. Undefined
-14. Undefined
+1) 1/5000 (will grow larger than constant with high enough N);
+2) 37;
+3) 100
+4) 10000
+5) ~477 (will grow larger than constant with high enough N)
+6) 40000
+7) 80000
+8) 160000
+9) ~31622776
+10) 100000000
+11) 400000000
+12) 1000000000000
+13) Undefined
+14) Undefined
+
+Indicate which functions grow at the same rate.
+
+Page 3, section 1.2 - log(A^B) = B(log(A))
+N(log(N)), and N((logN^2)) grow at the same rate due to the lgoarithmic property above, reducing 
+N((logN^2)) -> 2N(log(N)) -> N(log(N))
+
+
+Question 2.7
+
+a.2) O(N^2), 
+a.4) O(N^2)
+a.6) O(N^4) (First Loop: i runs n times, Second Loop: runs i^2 (i*i) times, Third Loop: k runs i times) = O(N^4)
+
+b.2/4/6) See assignment_1.java 
+         TERMINAL OUTPUT for N = 100,1000,10000:
+
+            Enter the first runtime N:
+            100
+            Enter the first runtime N:
+            1000
+            Enter the first runtime N:
+            10000
+            The run times of the first algorithm are as follows: 
+            The calculated runtime for question 2.7b2 is: 
+            230375
+            The calculated runtime for question 2.7b4 is: 
+            109500
+            The calculated runtime for question 2.7b6 is: 
+            7341791
+            The run times of the second algorithm are as follows: 
+            The calculated runtime for question 2.7b2 is: 
+            3496083
+            The calculated runtime for question 2.7b4 is: 
+            2029792
+            The calculated runtime for question 2.7b6 is: 
+            323174625
+            The run times of the third algorithm are as follows: 
+            The calculated runtime for question 2.7b2 is: 
+            87583
+            The calculated runtime for question 2.7b4 is: 
+            50333
+            The calculated runtime for question 2.7b6 is: 
+            310976772583
+
+
+Question 2.11
+
+An algorithm takes 0.5 ms for input size 100. How long will it take for input size 500 if the running time is the following (assume low-order terms are negligible):
+
+a) linear: 0.5ms = k * 100
+           0.5ms/100 = k
+           k = 0.005
+           2.5ms = 0.005 * 500
+           2.5ms
+
+b) O(NlogN): 0.5ms = k * (100(log100))
+                           0.5ms = k * 100(6.644)
+                           (0.5ms)/664.4 = k
+                           k = ~.0007525587
+                           ~3.37ms = .0007525587 * (500(log500))
+                           ~3.37ms
+
+c) quadratic: 0.5ms = k * 100^2
+              0.5ms/10000 = k
+              k = .00005
+              12.5ms = .00005 * 500^2
+              12.5ms
+
+d) cubic: 0.5ms = k * 100^3
+          0.5ms/1000000 = k
+          k = 0.0000005
+          62.5ms = 0.0000005 * 500^3
+          62.5ms
+
+
+Question 2.15
+
+Give an efficient algorithm to determine if there exists an integer i such that Ai = i  in an array of integers A1 < A2 < A3 < AN . What is the running time of your algorithm?
+
+reference: Chapter 2.4.4, page 45
+
+int low = 1
+int high = A.length (assuming array starts at 1, else A.length - 1)
+
+{2, 3, 5, 8, 10}
+mid = 3
+{-1, 1, 2, 4, 7}
+mid = 3
+
+while (low <= high) {
+
+    mid = (low + high) / 2 
+
+    if (A[mid] == mid) {
+        return mid
+        print "Integer found at its index in array"
+    }
+    else if (A[mid] < mid) {
+
+        low = mid + 1
+        search right side of sorted array
+
+    }
+    else {
+        high = mid - 1
+        search left side of sorted array
+    }
+
+    print "Integer not found at its index in array"
+}
+
+Binary searches are of O(logN) complexity, due to reducing the search space of the array by half every iteration. 
+
+
+
+
+
               
                 
