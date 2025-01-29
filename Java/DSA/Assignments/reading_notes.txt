@@ -1,0 +1,94 @@
+chapter 1:
+
+logarithmic functions and proofs:
+
+log(A)B = log(c)B/log(c)A;
+logAB = logA + logB; logA/B = logA - logB;
+logA^B = BlogA;
+logX < X for all X > 0;
+
+series:
+
+geometric:
+2^i = 2^(N+1) - 1
+A^i = (A^(N+1) - 1)/(A-1
+
+arithmetic:
+i = (N(N+1))/2 = N^2/2
+
+Modulo Operations:
+
+A = B%N if N divides A-B
+
+If a prime number N divides the product of two numbers, it divides at least one of those two numbers
+If N is prime a(x)%N = 1 for all 0 < a < N -> 0 < x < N is the multiplicative inverse;
+If N is prime, x^2%N = a has either two solutions for all 0 < a < N, or no solutions
+
+Proof by Induction:
+Establish a base case that is TRUE for at least a small set of values,
+Establish an inductive hypothesis - theorem is assumed to be true up until a limit k; as long as k is finite
+
+Prood by Counterexample:
+Fk <= k^2 has to be proven false, we can say F11 <= 11^2
+
+Proof by Contradiction:
+assume a theory is false and identify a false property, then prove it is false
+
+Recursion:
+a recursive function is one that is defined in terms of itself. The function call recalls the function at some point in its definition
+must include a base case where the function will terminate without having to induce the recursion
+each recursive function call is bookkept by the computer.
+some values in recursion will cause a base case to never be reached.
+In recursive programming, there's not such thing as a special case because the recruvsive call will work up or back to the base case an potentially make a call to invalid parameters along the way
+Design Rule: Recursive calls work correctly.
+Four rules:
+
+1. Base Case: you must have a base case that can be solved without recursion
+2. Making progress: the recursive calls you make in the function must work towards the base case
+3. All function calls work correctly, assumption
+4. Never duplicate work by solving the same instance of a problem in additional recursive calls
+
+Chapter 2:
+
+An algorithm is a clearly specified set of instructions to be followed to solve a problem
+We compare relative growth rates when evlauting algorithms because at separate points in a function, one value might be greater than the other and vice eversa
+1000N > n^2 when n is 1, but eventually, with enough siz, n^2 will yield a greater result
+
+Growth rate comparison definitions:
+
+T(N) <= f(N)
+T(N) = Omega(g(N)) -> growth rate T(N) is greater than or equal to that of g(N)
+T(N) = Theta(h(N)) -> growth rate of T(N) = growth rate of h(N)
+T(N) = o(p(N)) -> growth rate of T(N) is less than p(N)
+
+When we say T(N) = O(f(n)) we are guaranteing T(N) grows at a rate no faster than f(n), meaning f(n) is an UPPER BOUND
+on T(N). T(N) is a LOWER BOUND on f(n)
+
+Rules:
+
+T1(N) = O(f(N)) and T2(N) = O(g(N)) then T1(N) + T2(N) = O(f(N) + g(N))
+T1(N) * T2(N) = O(f(N) * g(N))
+if T(N) is a polynomial degrre of k then T(N) = Theta(N^K)
+log^k(N) = O(N) tells us logarithmic functions grow slowly
+
+Big O Rules - 
+
+constants ignored and lower order terms thrown away
+
+Worst case performance guarantees the performance of algorithm as opposed to best case or average case. 
+Size of input is an important consideration
+
+Algorithms, ideally, will actually take less time to run than reading data in for the algorithm to execute on
+
+General Rules for Quickly determing Big O of algorithms:
+
+1. For loops - the run time for a for loop is, at most, the running time of the statement inside the for loop
+* the number of iterations
+2. The total running time of a statement inside a group of nested for loops, is the running time of the statement multiplied by the product
+of the sized of all the for loops.
+3. Consecutive statements add not multiply. if you have one for loop, followed by a nested for loop, its still rule number 2
+4. the running time of the if/else statement is nevber more than the running time of the test + the run time of the larger of the two blocks
+
+Logarithms general rule:
+
+an algorithm is O(logn) if it takes o(1) constant time to cut the problem by a fraction, usualy 1/2. It's a divide and conquer scenario
