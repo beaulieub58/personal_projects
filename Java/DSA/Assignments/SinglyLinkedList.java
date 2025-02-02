@@ -21,7 +21,7 @@ public class SinglyLinkedList<AnyType> {
             this.val = val;
             this.next = null;
         }
-        //declare node value and node next reference variables
+        //declare node value and a node for the next reference variables
         public AnyType val;
         public Node<AnyType> next;
     }
