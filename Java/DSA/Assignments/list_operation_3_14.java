@@ -107,7 +107,8 @@ public class list_operation_3_14 {
         return outputList;
 
     }
-    //I did not have good intuition on how to dedupe the intersected lists, I did research and google how to do this using primative array types only
+    //*I did not have good intuition or really any idea on how to dedupe the intersected lists, I did research and google how to do this using primative array types only*
+    //All other code in this file is of my own creation and volition. Please let me know if you have any questions.
     
     public static void printList(int[] list) {
         for (int i = 0; i < list.length; ++i) {
