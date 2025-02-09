@@ -1,4 +1,4 @@
-package Java.DSA.Assignments;
+package Java.DSA.Assignments.week_2;
 import java.util.Scanner;
 
 public class SinglyLinkedList<AnyType> {
@@ -304,5 +304,3 @@ public class SinglyLinkedList<AnyType> {
     }
 
 }
-
-

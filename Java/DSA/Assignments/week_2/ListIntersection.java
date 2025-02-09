@@ -1,8 +1,8 @@
-package Java.DSA.Assignments;
+package Java.DSA.Assignments.week_2;
 import java.util.Scanner;
 
 
-public class list_operation_3_14 {
+public class ListIntersection {
 
     public static int[] createList(int listSize, Scanner scnr) {
 
@@ -129,7 +129,7 @@ public class list_operation_3_14 {
         int[] firstList = new int[firstListSize];
         firstList = createList(firstListSize, scnr);
         System.out.println("The first list is as follows:");
-        list_operation_3_14.printList(firstList);
+        ListIntersection.printList(firstList);
 
         System.out.println();
 
@@ -139,7 +139,7 @@ public class list_operation_3_14 {
         int[] secondList = new int[secondListSize];
         secondList = createList(secondListSize, scnr);
         System.out.println("The second list is as follows:");
-        list_operation_3_14.printList(secondList);
+        ListIntersection.printList(secondList);
 
         scnr.close();
 

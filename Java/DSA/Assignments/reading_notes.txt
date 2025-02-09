@@ -92,3 +92,22 @@ of the sized of all the for loops.
 Logarithms general rule:
 
 an algorithm is O(logn) if it takes o(1) constant time to cut the problem by a fraction, usualy 1/2. It's a divide and conquer scenario
+
+
+Chapter 2
+
+so stacks is
+
+push[++head]
+pop[head--]
+
+and queues are 
+
+push[++tail]
+pop[head++]
+
+when we have a stack and we want to push on to the stack, we need to increment head first then push to the new head index
+when we pop from a stack, we want to pop then decrement so that we return the end value before moving the head index to the value next to it
+
+when we have a queue, we need to increment and then add to the tail to push
+when we have a queue, we need to return head then increment to push head to the next value

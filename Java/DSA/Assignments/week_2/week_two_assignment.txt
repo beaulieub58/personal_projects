@@ -1,0 +1,11 @@
+Ben Beaulieu
+Homework Assignment 2
+2-04-2025
+
+3.4: The time complexity of the unionedList method is O(N^2), as we are looping through the first list n times, and the inner loop in the funcion is looping through the second list n times.
+     There is another component of the method that inserts the unioned array elements in to a resized array of size counter. This is O(N). However, the method simplifies to O(N^2).
+     The time complexity of the dedupeList method is also O(N^2) in its worse case, as it is looping through the length of input array. Additionally, it is looping through placeholder array counter times.
+     Additionally, there is another operation that adds the deduped list to a resized array with no unused indices. This is of time compleixty O(N), but the entire method simplifies to O(N^2).
+
+3.22: The input string for postfix expressions is being looped through n times, with n being the number of characters in the string. In this way, the function is O(N) complexity.
+      However, the operations to push and pop from the stack are always done in constant time since a stack always is LIFO and we are pushing/popping at the head of the list.
