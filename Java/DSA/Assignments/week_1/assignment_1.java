@@ -1,4 +1,4 @@
-package Java.DSA.Assignments;
+package Java.DSA.Assignments.week_1;
 import java.util.Scanner;
 //Question 2.7, Assignment 1
 public class assignment_1 {

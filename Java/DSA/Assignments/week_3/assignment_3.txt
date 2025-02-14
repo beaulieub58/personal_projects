@@ -1,0 +1,213 @@
+Ben Beaulieu
+2/09/2025
+Assignment 3
+
+(4.2) Basic Tree concepts. See the textbook for detailed requirements:
+For each node in the tree of figure 4.70:
+
+a. Name the parent node:
+b. List the children.
+c. List the siblings.
+d. Compute the depth.
+e. Compute the height.
+
+Nodes = {A, B, C, D, E, F, G, H, I, J, K, L, M}
+    
+    
+    a. Node A is the root node of the tree, it has no parent
+        Node B's parent is node A.
+        Node C's parent is node A.
+        Node D and E's parent is node B.
+        Node G and H's parent is node D.
+        Node I and J's parent is node E.
+        Node L and M's parent is node J.
+        Node F's parent is node C.
+        Node K's parent is node F.
+
+    b. The children of node A are {B, C}
+        The children of node B are {D, E}
+        The children of node C are {F}
+        The children of node D are {G, H}
+        The children of node E are {I, J}
+        The children of node F are {K}
+        The children of node J are {L, M}
+        Nodes {G, H, I, L, M K} are leaves, as they have no children
+
+    c. The siblings are: 
+        B & C,
+        D & E,
+        G & H,
+        I & J,
+        L & M
+
+        The listed nodes pairs all contain a common parent node.
+
+    d.  The depth of node A is 0 (root node),
+        The depth of node B is 1 (1 edge from root to node),
+        The depth of node C is 1 (1 edge from root to node),
+        The depth of node D is 2 (2 edges from root to node),
+        The depth of node E is 2 (2 edges from root to node),
+        The depth of node F is 2 (2 edges from root to node),
+        The depth of node G is 3 (3 edges from root to node),
+        The depth of node H is 3 (3 edges from root to node),
+        The depth of node I is 3 (3 edges from root to node),
+        The depth of node J is 3 (3 edges from root to node),
+        The depth of node K is 3 (3 edges from root to node),
+        The depth of node L and M is 4 (4 edges from root to node)
+    
+    e. The height of node A is 4 (4 edges from root to leaf)
+        The height of node B is 3 (3 edges from node to leaf),
+        The height of node C is 2 (2 edges from node to leaf),
+        The height of node D is 1 (1 edge from node to leaf),
+        The height of node E is 2 (2 edges from node to leaf),
+        The height of node F is 1 (1 edge from node to leaf),
+        The height of node G is 0 (0 edges from node to leaf),
+        The height of node H is 0 (0 edges from node to leaf),
+        The height of node I is 0 (0 edges from node to leaf),
+        The height of node J is 1 (1 edge from node to leaf),
+        The height of node K is 0 (0 edges from node to leaf),
+        The height of node L and M is 0 (0 edges from node to leaf)
+
+        
+
+        
+(4.3) What is the depth of the tree in figure 4.70?
+
+The depth of the tree is 4, given by the maxinum number of edges from the lowest leaf back to the root node A.
+
+(4.5) Show the maximum number of nodes in a binary tree of height h is 2^(h+1) - 1.
+      
+Build my intuition:
+
+        Assume our base case is number of nodes = 1, and height (k) = 0.
+        2^(0 + 1) - 1 ->
+        2^1  - 1 ->
+        2 -1 ->
+        1 node possible at maximum height height 0
+
+        k + 1 = 1 ->
+        2^ (1 + 1) - 1 ->
+        2^2 - 1 ->
+        4 - 1 = 3
+        3 nodes possible at maximum height 1 (1 root, 2 children). This could also be inferes as 1 root, 1 child, and 1 grandchild nodes
+
+        k + 1 = 2 ->
+        2^(2+1) - 1 ->
+        2^(3) - 1 ->
+        8 - 1 = 7
+        7 nodes possible at height 2 (1 root, 2 direct children, and 2 grand children per child node = 4 total nodes). This could be a number of combinations between the children and grand children combinations
+
+        k + 1 = 3 ->
+        2^(3+1) - 1 ->
+        2^4 - 1 ->
+        16 - 1 = 15
+        15 maximum nodes possible at height 3 (1 root, and 14 descendents that present in multiple combinations)
+
+Proving k + 1 will yield 2^(h+1) - 1 at all heights:
+
+        Considering the original root node (base case) and the maximum height of the left and right subtrees, repsectively.
+        root node + (maximum height of left subtree) + (maximum height of right subtree)
+        
+        h = 1 (add 1 root node to each base case)
+        1 (the root) + (2^(h+1) - 1) + (2^(h+1) - 1)
+        1 + 2(2^(h+1)-1)
+        1 + 2^(h+1) - 2
+        2^(2+1) - 1
+
+        h = 2 (3 total parents to to each, full sub tree)
+        3 (the root (1) + root's children (2)) + (2^(h+1) - 1 + 2^(h+1) - 1 + 2^(h+1) - 1 + 2^(h+1) - 1)
+        3 + 4(2^(h+1) - 1)
+        3 + 2^(h+1) - 4
+        2^(h+1) - 1
+
+        h = 3 (7 total parent nodes to each, full sub tree)
+        7 (the root (1) + root's direct children (2) and grand children (4)) + (2^(h+1) + 2^(h+1) + 2^(h+1) + 2^(h+1) + 2^(h+1) + 2^(h+1) + 2^(h+1) + 2^(h+1))
+        7 + 8(2^(h+1) - 1)
+        7 + 2^(h+1) - 8
+        2^(h+1) - 1
+
+(4.7) Give the prefix, infix, and postfix expressions corresponding to the tree in Figure 4.71.
+
+infix: inorder traversal and normal notation (section 4.2.2 - page 109)
+        ((a * b) * (c + d)) - e
+        note: standard notation
+
+prefix: hit the root of the tree first, then place operators ahead of numbers until subtree is traversed (from left to right)
+        - * * a b + c d e
+        note: hit each operator until you hit leaves, then work your way back up to the parent node.
+
+postfix: place numbers before operators until sub expression is completed (traversing from left to right)
+        a b * c d + * e -
+        note: hit each operand in the sub trees until you reach a common parent node, then work on the next subtree if it exists.
+            only then can you up to the next set up subtrees
+
+(5.10) What are the advantages and disadvantages of the collision resolution strategies you used in 5.1
+
+1. Separate Chaining:
+
+    Advantages of separate chaining resolution are most relevant in a table with a load factor ~= 1, or the number 
+    of elements is roughly equal to the number of indices. Still, seprate chainining isn't as vunerable to increased load factors as open addressing is.
+    
+    Collisions are resolved by inserting new values at the beginning of the hashed index's bucket, which is done 
+    in constant time, when each bucket index contains a linked list or any other ADT that supports preppending. 
+
+    Lastly, since insertions at each bucket index are occuring within a separate ADT, resizing the original table size
+    is not neccessary as each element can be inserted in the ADT per bucket.
+
+    Disadvantages of separate chaining include extra complexity in setup and memory usage due to allocating new ADT objects
+    for each index in the table. 
+
+    Also, if hashed values do cluster in to a concentrated number of buckets, searching for those values could
+    be O(N) due to the need to traverse longer list ADT's in each bucket.
+
+2. Linear Probing
+
+    The advantages of linear probing are that it is relatively easy to implement, as finding an available index for insertion
+    after a collision is identified consists of incrementing the hashed valued by 1 and modulating by the list size.
+
+    Linear probing also keeps all hashed values in a simple array which results in less memory usage.
+
+    Disadvantages include primary clustering, which occures when blocks of occuoped cells start forming. This can lead
+    to longer insertion times due to more attempts needed to resolve the initial and subsequent collisions. 
+
+    To add to that thought, we see performance degrade nearly exponentially as the load factor of the table increases.
+    As the load factor grows, with linear probing, the number of probes necessary to resolve a collision increases signicantly. 
+    If a table is expected to be more than half full, linear probing can be problematic or larger amount of memory are needed to
+    build arrays large enough to accommodate the expected number of insertions, which negates one of the strategy's primary advantages.
+
+3. Quadratic Probing
+
+    Quadratic probing has the advantage of eliminating the primary clustering, and is relatively easy to implement compared to seaprate chaining
+
+    A considerable disadvantage to quadratic probing is the lack in gaurantee that all elements to be inserted will find
+    a cell to be inserted at, which is exacerbated if the table's length is not a prime number. This is due to fact that
+    at most, half of the table can be used as alternative locations to resolve collisions. This is known as secondary clustering.
+
+4. Double Hashing
+
+    Advantages of double hashing include the elimination of primary and secondary clustering, which theoretically should
+    reduce the number of probes necessary to resolve collisions. 
+
+    If a secondary hash function is strong and compliant with the table's prime size, double hashing is more performant.
+
+    However, the caveat is double hashing requires the double hash function allow all table cells to be probed. If the table size is not prime,
+    we can run in to the same problems secondary clustering presents. Alternative locations could prematurely run out.
+
+    An additiona disadvantage is the fact that we have to implement a hash function twice in this use case, which can be expensive
+    when dealing keys like strings.
+
+
+             
+
+
+               
+
+
+
+
+
+               
+
+    
+
+          

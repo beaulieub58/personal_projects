@@ -1,4 +1,4 @@
-package Java.DSA.Assignments;
+package Java.DSA.Assignments.week_1;
 
 public class fibonnaci_no_recursion {
 

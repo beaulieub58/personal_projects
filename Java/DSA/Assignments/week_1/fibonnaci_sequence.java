@@ -1,4 +1,4 @@
-package Java.DSA.Assignments;
+package Java.DSA.Assignments.week_1;
 import java.util.Scanner;
 
 public class fibonnaci_sequence {
