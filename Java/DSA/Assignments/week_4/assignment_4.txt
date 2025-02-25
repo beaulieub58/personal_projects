@@ -1,0 +1,85 @@
+Ben Beaulieu
+2/16/2025
+Week 4 Assignments
+
+(4.9) a. Show the result of inserting 3, 1, 4, 6, 9, 2, 5, 7 into an initially empty binary search tree. Nodes are inserted
+         in order such that all node values that are less than the parent node value are placed to the left of the parent/root node,
+         and all nodes values that are greater than the parent node value are placed to the right of the parent/root node.
+
+      b. Show the result of deleting the root. 4 becomes the parent after roating left and up.
+
+      SEE PDF.
+
+(4.19) Show the result of inserting 2, 1, 4, 5, 9, 3, 6, 7 into an initially empty AVL tree.
+       In an AVL tree the difference in height of for respective left and right subtrees can be 
+       no more than 1 or -1. 
+
+       SEE PDF
+
+
+(4.22) Design a linear-time algorithm that verifies that the height information in an AVL
+       tree is correctly maintained and that the balance proporty is in order (pseudo code):
+
+        (Figure 4.37 and 4.38 as guide)
+       static AVL class <AnyType> {
+        //constructors
+        Node <AnyType> {
+            this.AnyType, null, null;
+        }
+        Node <AnyType> (Parameter, LtNode <AnyType>, RtNode <AnyType)  {
+            parameter = Parameter; left = LtNode; right = RtNode; height = 0;
+        }
+        //Node class members
+        AnyType parameter;
+        Node<AnyType> left;
+        Node<AnyType> right;
+        int height;
+
+        //AVL trees cannot have a height imbalance exceeding 1
+        private static final int ALLOWED_IMBALANCE = 1;
+
+        private bool IsSubtreeBalanced (Node<AnyType> parameter) {
+
+            boolean balanced = true;
+
+            //base recursion case
+            if (Node is null) {
+                return 0;
+            }
+            //compute height for each left subtree node
+            int leftNodeHeight = IsSubtreeBalanced(parameter.left);
+            //compute height for each right substree node
+            int rightNodeHeight = IsSubtreeBalanced(parameter.right);
+
+            if (leftNodeHeight == -1) {
+                return false;
+            }
+            else if (rightNodeHeight == -1) {
+                return false;
+            }
+            if(absolute value of leftNodeHeight - rightNodeHeight > ALLOWED_IMBALANCE) {
+                return -1;
+            }
+            (figure 4.39 as guide)
+            //we're taking the max height of the bigger subtree to calculate the height difference, not the smalles
+            return Math.max(leftNodeHeight, rightNodeHeight) + 1;
+        }
+
+    }
+
+(6.2) a. Show the result of inserting 10, 12, 1, 14, 6, 5, 8, 15, 3, 9, 7, 4, 11, 13, and 2, one at a time
+         into an empty binary heap
+         --Tree drawing is based on code output in array format from java source file.
+      b. Show the result of using the linear-time algorithm to build a binary heap using the same input
+         --Tree drawing is based on code output in array form from java source file.
+            
+(6.3) Show the result of performing three deleteMin operations in the heap of the previous exercise
+      --Tree drawing is based on code output in array format from java source file
+
+
+
+
+
+       
+
+

@@ -1,0 +1,61 @@
+Ben Beaulieu
+Assignment 5
+2-24-2025
+
+(7.2) What is the running time insertion sort if all elements are equal?
+    
+     In the insertion sort algorithm provided in the text, if all elements of the array are equal,
+     the inner for loop will not initiate and fail. This leads us to our best case
+     in time complexity for insertion sort, which is O(N).
+
+     The inner loop condition will fail if the array is presorted due to the second condition in
+     in the inner for loop (denoted by ** // **): 
+     for( j = p; j > left && **tmp.compareTo( a[ j - 1 ] ) < 0**; j-- )
+
+(7.11) Show how heapsort processes the input 142, 543, 123, 65, 453, 879, 572, 434, 111, 242, 811, 102.
+       See source file for execution and output.
+       (Max Heap) Heapified array is {879, 811, 572, 434, 543, 123, 142, 65, 111, 242, 453, 102}
+       The sorted max heap is {65, 102, 111, 123, 142, 242, 434, 453, 543, 572, 811, 879}
+
+(7.15) Sort 3, 1, 4, 1, 5, 9, 2, 6 using mergesort
+       
+       The low point of the array is index 0 -> 3
+       The high point of the array is index 7 -> 6
+       The center point is (0 + 7) / 2 -> 1
+
+       Given the merge sort algorithm, we recursively call mergesort() on the left partioned array:
+       {3, 1, 4, 1}
+       The low point of the array is index 0 -> 3
+       The high point of the array is index 4 -> 1
+       The center point is (0 + 4) / 2 -> 4
+
+       Given the merge sort algorithm, we recursively call mergesort() on the left partioned array:
+       {3, 1, 4}
+       The low point of the array is index 0 -> 3
+       The high point of the array is index 3 -> 4
+       The center point is (0 + 2) / 2 -> 1
+       
+       Given the merge sort algorithm, we recursively call mergesort() on the left partioned array:
+       {3}
+       A single element array is sorted
+
+       Given the merge sort algorithm, we recursively call mergesort() on the right partioned array:
+       {1, 4}
+       
+       The mergesort algorithm splits 1 and 4 in to singular arrays
+       {1} and {4} which are sorted as they are single element arrays
+       We then merge the singular arrays by of {1} and {4}
+       1 < 4 so 1 is placed first, resulting in {1, 4}
+       We then merge {3} with {1,4}
+       1 < 3 and 3 < 4, resulting in {1, 3, 4}
+
+       Given the merge sort algorithm, we recursively call mergesort() on the original, right partioned array:
+       The original, right partitioned array is the center point ((0 + 7) / 2) PLUS 1 -> 5
+       and the high point -> 6
+       The original, right partitioned array is {5, 9, 2, 6}
+
+
+
+
+
+       
