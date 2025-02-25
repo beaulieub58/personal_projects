@@ -23,27 +23,6 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
         buildHeap();
     }
 
-
-    @SuppressWarnings("unchecked")
-    private void enlargeArray(int newSize) {
-        AnyType[] oldArray = array;
-        array = (AnyType[]) new Comparable[newSize];
-        for (int i = 0; i < oldArray.length; ++i) {
-            array[i] = oldArray[i];
-        }
-    }
-
-    private void insert(AnyType x) {
-        if(currentSize == array.length - 1) {
-            enlargeArray(array.length * 2 + 1);
-        }
-        int hole = ++currentSize;
-        for(; hole > 1 && x.compareTo(array[hole/2]) < 0; hole /= 2) {
-            array[hole] = array[hole/2];
-        }
-        array[hole] = x;
-    }
-
     private void buildHeap() {
         for (int i = currentSize/2; i > 0; i--) {
             percolateDown(i);
