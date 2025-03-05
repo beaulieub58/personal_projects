@@ -1,0 +1,132 @@
+Ben Beaulieu
+Week 6 Assignment
+03/03/2025
+
+Question 1. The solution is implemented in the source file GraphRepresentation.java as an adjacency matrix
+Question 2. The solution is implemented in the source file GraphRepresentation.java
+Question 3. See pdf file of MST
+
+Question 4. A) A graph is k-colorable if each vertex can be given one of k colors, 
+               and no edge connects identically colored vertices. Give a linear-time 
+               algorithm to test a graph for two-colorability. Assume graphs are stored 
+               in adjacency list format; you must specify any additional data structures that are needed.
+
+               public class DepthFirstSearch {
+
+                //global node list
+                public int[] nodes = {node values};
+
+                //global node length
+                public int n = nodes.length;
+
+                //build the visited boolean array global variable
+                public boolean[] visitedNodes = new boolean[n];
+
+                //set kColorable to default to true
+                public boolean kColorable = true;
+
+                //initialize "colors" array with -1 except 1st element to show as univisted and uncolored
+                int[] colors = new int[n]
+                colors[0] = 0;
+                for (int i = 1; i < n; ++i) {
+                    colors[i] = -1;
+                }
+
+                //placeholder variable for adjacency list
+                public List<List<Integer>> adjacencyList = new ArrayList<>()
+                
+                //build a list where each list element contains a list to place the adjacent nodes
+                public static List<List<Integer>> buildAdjacencyList (int number) {
+                    for (int i = 0; i < n; ++i) {
+                        adjacencyList.add(new ArrayList<>());
+
+                    }
+
+                    return adjacencyList;
+                }
+
+                //global adjacencyList
+                public adjList = buildAdjacencyList(n)
+
+                //add edges to global adjacencyList variable
+
+                public static void dfs(node) {
+
+                    //base case
+                    if (visitedNodes[node]) {
+                        return;
+                    }
+                    else {
+                        //set node visited = true in global boolean array
+                        vistedNodes[node] = true;
+                    }
+                    //grab all of the direct adjacent nodes to the parameter node by referencing the
+                    //adjacency List
+
+                    //to do so, allocate a new, brief array, and add in the number of adjacent elements
+                    //in that node's (outer list's) inner list
+                    int[] directAdjacents = int[number of edges at intersection of node in adjList]
+                    for(int i 0; i <directAdjacents.length; ++i) {
+                        directAdjacents[i] = adjList.get(0).get(i)
+                    }
+                    //if color is 0, connect it with an opposite color (1), if node color is -1 (unvisited), assign it to 0
+                    if(colors[node address in colors list] == -1) {
+                        colors[directAdjacents address in colors] = 0
+                    }
+                    else if (colors[node address in colors list] == 0) {
+                        colors[directAdjacents address in colors] = 1
+                    }
+                    //check to see if adjacent nodes have the same color
+                    if (colors[node] == directAdjacents[color]) {
+                        kColorable = false;
+                        BREAK; 
+                    }
+                    //recursivley call dfs on each adjacent node using adjancency list
+                    for (int i = 0; i < directAdjacents.length; ++i) {
+                        dfs(directAdjacents[i])
+                    }
+                }
+                public static void main(String[] args) {
+                    //start with some arbitrary node
+                    DepthFirstSearch.dfs(nodes[0]);
+
+                    //print if the graph is k colorable
+                    System.out.println(kColorable);
+
+                }
+
+               }
+
+
+            B) Analyze the time complexity of your algorithm:
+               The run time of Depth First Search  algorithms is directly proportional to the number of vertices
+               and edges in your graph, so the time complexity is O(V+E) and satisfies the linear requirement
+               of this question.
+
+Question 5: Application of Graph Algorithms: There are N cities, and the cost of providing direct flight between any 
+            two cities is given. Determine a set of direct flights to offer so that all cities are connected at a 
+            minimal cost. You may ignore the direction of flights and assume that the direct flight between any two 
+            selected cities is bidirectional.
+
+            A. Explain clearly how this problem can be solved using graph model:  What do vertices represent? What do edges represent?
+            B. Describe the algorithm used to find the answer.
+
+            A mapping of each city, connected by flights is an appropriate use case for graph representation. It is intutiive to 
+            produce an adjacency list or matrix in for each city's airport, connected by a flight to another airport. 1 airport
+            can be connected to multiple airports and their associated costs using the aforementioned graphical representations.
+
+            The vertices represent a city's airport, and the edges represent the flight path's with their associated "costs", whether 
+            that cost is time, money, distiance, etc.
+            
+            I believe this problem can be solved by applying minimum spanning tree principles, considering we want to connect cities
+            using the minimal cost, Prim's algorithm would be an appropriate application. We can ignore the direction of the flights
+            meaning we can start building the minimum spanning tree from an arbittary node. When we start with an arbitrary node,
+            we successively visit an adjacent node with the smallest edge cost, that is not already connected in the existing spanning
+            tree. We mark the node as visited and continue, until all nodes are connected by the MST.
+            
+            C. Analyze the time complexity of your algorithm.
+            Reference page 396 - In its best case scenario, Prim's algorithm can have a time complexity
+            of O(ElogV), and in its worst case for dense graphs O(V^2). 
+
+
+
