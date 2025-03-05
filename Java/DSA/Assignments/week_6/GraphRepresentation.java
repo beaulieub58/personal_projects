@@ -123,6 +123,7 @@ public class GraphRepresentation {
             }
      
         }
+        System.out.println();
         System.out.println("The topologically sorted DAG is: ");
         return topSorted;
     }
@@ -132,6 +133,7 @@ public class GraphRepresentation {
         char[] vertices = {'S','A','B','C','D','E','F','G','H','I','T'};
         int[][] matrix = GraphRepresentation.matrixBuild(vertices);
         //matrix no weights
+        System.out.println("question 1: ");
         printMatrix(matrix, vertices ,vertices.length);
 
         //add  S->A
@@ -178,8 +180,11 @@ public class GraphRepresentation {
         matrix[4][10] = 4;
 
         //matrix with weighted edges
+        System.out.println("question 1: ");
         printMatrix(matrix, vertices ,vertices.length);
 
+        
+        System.out.println("question 2: ");
         System.out.println(topoSort(matrix, vertices));
 
         System.out.println();
