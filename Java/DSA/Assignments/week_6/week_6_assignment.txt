@@ -111,16 +111,16 @@ Question 5: Application of Graph Algorithms: There are N cities, and the cost of
             A. Explain clearly how this problem can be solved using graph model:  What do vertices represent? What do edges represent?
             B. Describe the algorithm used to find the answer.
 
-            A mapping of each city, connected by flights is an appropriate use case for graph representation. It is intutiive to 
+            A mapping of each city, connected by flights is an appropriate use case for graph representation. It is intuitive to 
             produce an adjacency list or matrix in for each city's airport, connected by a flight to another airport. 1 airport
             can be connected to multiple airports and their associated costs using the aforementioned graphical representations.
 
             The vertices represent a city's airport, and the edges represent the flight path's with their associated "costs", whether 
-            that cost is time, money, distiance, etc.
+            that cost is time, money, distance, etc.
             
             I believe this problem can be solved by applying minimum spanning tree principles, considering we want to connect cities
             using the minimal cost, Prim's algorithm would be an appropriate application. We can ignore the direction of the flights
-            meaning we can start building the minimum spanning tree from an arbittary node. When we start with an arbitrary node,
+            meaning we can start building the minimum spanning tree from an arbitrary node. When we start with an arbitrary node,
             we successively visit an adjacent node with the smallest edge cost, that is not already connected in the existing spanning
             tree. We mark the node as visited and continue, until all nodes are connected by the MST.
             
