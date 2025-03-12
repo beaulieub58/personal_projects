@@ -1,0 +1,46 @@
+Ben Beaulieu
+3/10/2025
+Week 7 Homework
+
+1. Use Figure 9.82 and show the major steps by drawing tables as in Figure 9.15 or as in Figure 9.19          (or you may choose to implement these algorithms):
+- Find the shortest unweighted path from B to all other vertices using the unweighted shortest paths algorithm in 9.3.1.
+- Using Dijkstra's algorithm, find the shortest weighted path from A to all other vertices.  
+
+See pdf
+
+2. Earliest Completion Time, Latest Completion Time, Slack Time
+- See pdf for activity event graph (google sheet screenshot)
+- see pdf for ECT, LTC, and Slack Time (google sheet screenshot)
+
+3. 9.52 
+   To model a course navigation that requires the completion of prerequisites, without a limit
+   on the number of courses that be taken given the prerequisites, it would be useful to use an
+   an event-node graph. Each event in the graph corresponds to the dependencies (prerequisites)
+   that a student must complete, in addition to the first event, to work their way towards
+   graduation. Dummy edges and nodes can be used where the completion of one dependency
+   may open up a pathway to multple, higher-level courses. Each node in the graph, or vertex,
+   represents a course that must be completed, and an edge represents a dependency to one or
+   more prerequisite courses.
+
+   We can use an improved Dijkstra’s algorithm to solve this problem to find the critical path,
+   given the order of the nodes are known ahead of time. This is made possible by topologically
+   sorting the data. As such, the running time of the algorithm is O(E+V). We can evaluate the
+   critical path by determing where 0 slack time exists among the course plan, and use that path
+   to determine the shortest time to graduation.
+
+   9.53
+   To model the degrees of Kevin Bacon, or the minimum number of links between shared roles
+   in movies among actors can be addressed using the All Pairs Shortest Path algorithm, where
+   each node in the graph represents an actor, and the edges represent a connection to adjacent
+   nodes (actors) if they shared roles in a movie. The number of edges between the actor of
+   interest and the Kevin Bacon node, is the number actors in shared roles that it takes to
+   connect them. Ideally, we want to gradually build the intermediate pathways between nodes
+   to find Kevin Bacon.
+   
+   The shortest path algorithm excels in finding in a source node, to all other nodes in
+   a graph where the graph is limited in the number of nodes. In this instance, I assume the number of 
+   provided actors in their roles have the opportunity to form a dense graph, but wont likely scale that
+   way in this application.
+
+   This algorithm runs in O(V^3) time complexity.
+
