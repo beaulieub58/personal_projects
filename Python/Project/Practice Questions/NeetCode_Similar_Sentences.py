@@ -13,7 +13,6 @@ class Solution:
         
         for h in range(len(sentence1)):
             if sentence1[h] == sentence2[h] or sentence2[h] in similarWordsMap[sentence1[h]]:
-                print(similarWordsMap[sentence1[h]])
                 continue
             return False
         
