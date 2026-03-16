@@ -81,6 +81,7 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 
 8. Build bronze evironment
 	1. Since raw data has been ingested to PSQL source, extract relevant JSON fields and explode neccessary nested json items - incremental
+	2. Cast data types appropriately, ie. extract json text to dates and float values where appropriate.
 
 9. Build silver environment
     1. Largely intended to dedupe bronze enviromnent if needed and assign unique key values where approrpiate to inform merge ops on incremental models
@@ -92,3 +93,29 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 
 11. Docoment models in schema files
 	1. I will be documenting the models in a time-boxed format.
+
+12. Once schema file on gold/mart models are complete test your model with dbt build --full-refresh
+
+--- TRADEOFFS ---
+
+1. Instead of seeding the provided csv files directly in dbt, I sourced them from a local PSQL instance, which added time to my modeling process and added time in configuring the instance.
+
+2. Instead of exploding rows via cross joining all at once in the bronze layer, I evaluated through trial and error how consequential it would be by cross joining nested json elements. When tables started blowing up, I would break the source tables down in to separate components that could be modeled further downstream. This added to the number of models needed, which can be cumbersome, but these sub-models could have potential to be useful in other applications which ascribes value as standalones
+
+3. There were multiple instances, due to using the small data set, where I directly indexed jsonb elements that contained lists at position 0, allowing for easier access to objects without having to cross join or left join lateral. This works on the assumption that there is only 1 item contained in each of the nested list objects. Model tests passed where appropriate, but a break in this assumption would require a complete rework of the upstream layer.
+
+4. I am surfacing fields in the patient dim table, within the mart layer, that would be subject to scrutiny given their sensitivity. There would have to be enhanced column masking completed on this table - with permissions for viewing limited to specific accounts and service accounts only.
+
+5. I am doing some row unpivotting -> pivotting in 2 separate models within the silver to account for coalesced column values and labels, especially in the patient data. If the number of column values increases, the query will have to account for those new column values, so pivotted rows are not missed downstream. There could be some alerting introduced for this
+
+6. I am using views to communicate answers to questions posed by the case. It is generaly bad practice to have a view list one row and one column of data. This is not something I would do in production, only in practice.
+
+--- LOOKING FORWARD (Additional FHIR Resources) ---
+
+1. I would rather use the approach I did of storing the source data in psotgres tables ON THE ASSUMPTION that a direct intgregation could be created with FHIR data - to avoid having to replace seed csv's constantly
+
+2. It would potentially be wise to use the Polars package to quickly create dataframes from the json events, and explode/unnest nested items quickly with the assistance of a Rust API.
+
+3. The possibilities for analytics are endless for this data when every resource is considered. A semantic layer and dbt macros would be arduous/laborious to maintain, but would be able to add some clarity to the variety of metrics, measures, and field definitions that would eventually propagate to a business intelligence/data viz tool.
+
+

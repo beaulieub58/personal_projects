@@ -1,0 +1,244 @@
+version: 2
+
+models:
+  - name: immunization_fct
+    description: "Fact table describing a book of record of immunization events, including some detail on occurence, site, and types of vaccines"
+    columns:
+      - name: immunization_id
+        description: "ID of the vaccine"
+        tests:
+          - not_null
+          - unique
+
+      - name: immunization_status
+        description: "Status of the immunization in these categories : completed | entered-in-error | not-done"
+        tests:
+          - not_null
+
+      - name: immunization_occured_at
+        description: "Vaccine administration date"
+
+      - name: immunization_primary_source_ind
+        description: "Indicates the context the immunization data was captured in"
+        tests:
+          - not_null
+
+      - name: immunization_site
+        description: "Body site vaccine was administered"
+        tests:
+          - not_null
+      
+      - name: patient_id
+        description: "Unique key of who was immunized"
+        tests:
+          - not_null
+
+      - name: encounter_id
+        description: "Unique key of encounter immunization was part of"
+        tests:
+          - not_null
+
+      - name: immunization_type
+        description: "A description of the immunization type"
+        tests:
+          - not_null
+      
+
+      - name: immunization_code
+        description: "The coded description"
+        tests:
+          - not_null
+
+  - name: lab_reports_fct
+    description: "Fact table describing a book of record of diagnostic reports that are specifically limited to the LAB category, with some description on who performed the lab and when the report was effective."
+    columns:
+      - name: diagnostic_report_id
+        description: "ID of the diagnostic report"
+        tests:
+          - not_null
+          - unique
+
+      - name: report_type_coding
+        description: "LOINC Code for this diagnostic report"
+        tests:
+          - not_null
+
+      - name: report_status
+        description: "Status of this diagnostic report in these: 	registered | partial | preliminary | modified | final | amended | corrected | appended | cancelled | entered-in-error | unknown"
+        tests:
+          - not_null
+      
+      - name: report_type
+        description: "Diagnostic report service type description"
+        tests:
+          - not_null
+      
+      - name: report_code
+        description: "Should be LAB"
+        tests:
+          - not_null
+      
+      - name: report_effective_at
+        description: "Clinicially relevant date of diagnostic report"
+        tests:
+          - not_null
+      
+      - name: report_issued_at
+        description: "The date of the versioned report"
+        tests:
+          - not_null
+      
+      - name: patient_id
+        description: "Unique key of who was immunized"
+        tests:
+          - not_null
+
+      - name: encounter_id
+        description: "Unique key of encounter immunization was part of"
+        tests:
+          - not_null
+      
+      - name: report_performer
+        description: "Responsible Diagnostic service"
+
+  - name: patient_dim
+    description: "Descriptive table detailing patient information. Note some fields are considered PII and must be protected for security purposes"
+    columns:
+      - name: patient_id
+        description: "Unique key of who was immunized"
+        tests:
+          - not_null
+          - unique
+
+      - name: patient_gender
+        description: "Patient's self-described gender"
+      
+      - name: patient_birth_date
+        description: "Patient's date of birth"
+      
+      - name: patient_death_date
+        description: "Patient's date of death if deceased"
+      
+      - name: patient_deceased
+        description: "Boolean field marked true if patient death date is not null"
+      
+      - name: patient_marital_status
+        description: "Patient's marital status"
+
+      - name: quality_adjusted_life_years
+        description: "The number of years a patient has enjoyed health from treatment"   
+
+      - name: diability_adjusted_life_years
+        description: "The number of years a patient has been burdended by disability or disease"  
+
+      - name: ethnicity
+        description: "Patient's stated ethnicity" 
+
+      - name: mothers_maiden_name
+        description: "Patient's mother's maiden name"  
+
+      - name: race
+        description: "Patient's stated race"   
+
+      - name: birth_sex
+        description: "Patient's sex assigned at birth"  
+
+      - name: birth_city
+        description: "City the patient was born in."  
+
+      - name: birth_state
+        description: "State the patient was born in"       
+
+      - name: birth_country
+        description: "Country the patient was born in"         
+
+      - name: passport_number
+        description: "Patient's passport number - EXTRA MASKING"    
+
+      - name: drivers_license_number
+        description: "Patient's DL number EXTRA MASKING"   
+      
+      - name: drivers_license_number
+        description: "Patient's DL number EXTRA MASKING"   
+      
+      - name: medical_record_number
+        description: "Patient's MR NUMBER - EXTRA MASKING"
+        tests:
+          - unique
+          - not_null
+      
+      - name: patient_address_line
+        description: "Patient's listed address line 1 - EXTRA MASKING"
+      
+      - name: patient_zip
+        description: "Patient's listed zip code - EXTRA MASKING"
+      
+      - name: name_family
+        description: "Patient's fmaily name"
+      
+      - name: name_given
+        description: "Patient's given name"
+
+      - name: name_prefix
+        description: "Patient's chosen name prefix"
+
+  - name: vital_sign_details
+    description: "Child table sourced for Observation source that filter on vital signs resulting from aforementioned observations."
+    columns:
+      - name: observation_id
+        description: "Observation ID that sourced vital sign, can be more than one per patient and observation occurence, as there can be multiple vital signs taken per observation"
+        tests:
+          - not_null
+
+      - name: observation_status
+        description: "Status of observation where vitals were taken: registered | preliminary | final | amended +"
+        tests:
+          - not_null
+      
+      - name: observation_effective_at
+        description: "Clinicially relevant date of observation"
+        tests:
+          - not_null
+      
+      - name: observation_issued_at
+        description: "The date of the versioned observation"
+        tests:
+          - not_null
+      
+      - name: patient_id
+        description: "Unique key of who was immunized"
+        tests:
+          - not_null
+
+      - name: encounter_id
+        description: "Unique key of encounter immunization was part of"
+        tests:
+          - not_null
+      
+      - name: observation_code
+        description: "Observation category code"
+        tests:
+          - not_null
+
+      - name: observation_name
+        description: "Name of vital sign attempted taken"
+        tests:
+          - not_null
+      
+      - name: vital_sign_value
+        description: "The measured value of the vital sign. These are not standardized to one unit of measurement"
+      
+      - name: vital_sign_unit
+        description: "The unit of measurement the vital sign is recorded in. These are not standardized to one unit of measurement"
+
+
+
+      
+    
+      
+
+
+
+      
+      
+      

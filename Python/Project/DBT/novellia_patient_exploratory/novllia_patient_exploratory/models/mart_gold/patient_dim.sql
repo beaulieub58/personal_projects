@@ -2,8 +2,6 @@
 
 SELECT
   pp.patient_id,
-  pp.inserted_at,
-  pp.updated_at,
   pp.patient_gender,
   pp.patient_birth_date,
   pp.patient_death_date,
