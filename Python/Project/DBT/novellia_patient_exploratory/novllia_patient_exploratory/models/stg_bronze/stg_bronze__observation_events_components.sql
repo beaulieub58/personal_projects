@@ -4,6 +4,8 @@ SELECT
   oe.data->>'id' AS observation_id,
   oe.inserted_at,
   oe.updated_at,
+  oe.data->'category'->0->'coding'->0->>'code' AS category_code,
+  oe.data->'category'->0->'coding'->0->>'display' AS category_name,
   components->'code'->'coding'->0->>'code' AS component_code,
   components->'code'->'coding'->0->>'display' AS component_display_name,
   CAST(components->'valueQuantity'->>'value' AS FLOAT) AS component_value,

@@ -46,6 +46,3 @@ WHERE
 
 ORDER BY
   r.completed_vaccines DESC
-
-
-  

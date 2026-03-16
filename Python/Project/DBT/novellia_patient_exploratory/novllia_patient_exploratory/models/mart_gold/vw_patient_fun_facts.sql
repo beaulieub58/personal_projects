@@ -10,3 +10,4 @@ SELECT
   
 FROM
   {{ ref('patient_dim')}} p
+  

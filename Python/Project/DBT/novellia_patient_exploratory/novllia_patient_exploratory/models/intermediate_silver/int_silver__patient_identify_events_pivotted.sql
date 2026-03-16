@@ -18,3 +18,4 @@ GROUP BY
   pe.patient_id,
   pe.inserted_at,
   pe.updated_at
+  

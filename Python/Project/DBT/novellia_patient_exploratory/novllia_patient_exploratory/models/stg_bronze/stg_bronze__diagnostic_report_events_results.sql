@@ -4,7 +4,9 @@
 SELECT
   de.data->>'id' AS diagnostic_report_id,
   SPLIT_PART(result->>'reference' ,'/', -1) AS observation_id,
-  result->>'display' AS result_name
+  result->>'display' AS result_name,
+  ROW_NUMBER() OVER(PARTITION BY de.data->>'id', result->>'display') AS report_result_order
+
 
 
 
@@ -18,6 +20,3 @@ CROSS JOIN LATERAL
 WHERE de.updated_at > (SELECT COALESCE(MAX(updated_at), '2000-01-01' )FROM {{this}})
 
 {% endif %}
-
-  
-

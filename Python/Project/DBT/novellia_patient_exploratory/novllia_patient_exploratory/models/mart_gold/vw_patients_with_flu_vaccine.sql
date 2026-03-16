@@ -9,3 +9,4 @@ FROM
 WHERE
   i.immunization_code = '140'
   AND i.immunization_status = 'completed'
+  

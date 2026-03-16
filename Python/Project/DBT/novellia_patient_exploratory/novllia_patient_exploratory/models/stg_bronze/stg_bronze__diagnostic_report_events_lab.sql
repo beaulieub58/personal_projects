@@ -4,6 +4,7 @@
 WITH all_diagnostics AS (
 SELECT
   de.data->>'id' AS diagnostic_report_id,
+  de.data->'code'->'coding'->0->>'code' AS report_type_coding,
   de.data->'code'->>'text' AS report_type,
   coding->>'code' AS report_code,
   coding->>'display' AS report_name
@@ -25,14 +26,14 @@ WHERE de.updated_at > (SELECT COALESCE(MAX(updated_at), '2000-01-01' )FROM {{thi
 
 SELECT
   diagnostic_report_id,
+  report_type_coding,
   report_type,
   report_code,
-  report_name
-
+  report_name,
+  ROW_NUMBER() OVER(PARTITION BY diagnostic_report_id, report_type_coding) AS report_code_order
 FROM 
   all_diagnostics
 
 WHERE 
   LOWER(report_code) = 'lab'
   
-

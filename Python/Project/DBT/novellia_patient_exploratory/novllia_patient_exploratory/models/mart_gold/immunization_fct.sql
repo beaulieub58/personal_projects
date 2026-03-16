@@ -13,3 +13,4 @@ SELECT
 
 FROM 
   {{ ref('int_silver__immunization') }} i
+  

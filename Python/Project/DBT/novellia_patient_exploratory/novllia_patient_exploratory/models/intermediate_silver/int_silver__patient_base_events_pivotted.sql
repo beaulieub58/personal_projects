@@ -32,3 +32,4 @@ GROUP BY
   pe.patient_death_date,
   pe.patient_deceased,
   pe.patient_marital_status
+  
