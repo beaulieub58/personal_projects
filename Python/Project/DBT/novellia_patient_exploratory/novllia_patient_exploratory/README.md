@@ -62,7 +62,7 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 	2. \c fhir 
 	3. CREATE SCHEMA (schema name based on mapping above)
 	4. CREATE TABLE (data jsonb)
-	5. Assign admin role to myself
+	5. Assign admin role to myself for dropping tables/scehmas/and altering tables with inserted at and updated at columns
 
 3. Load local files in to postgres instance to replicate streaming/api load (needed and for fun tables)
 	1. \copy clinical.procedure_events(data) FROM '~/Downloads/sample_data_fhir/Condition.000.ndjson'
