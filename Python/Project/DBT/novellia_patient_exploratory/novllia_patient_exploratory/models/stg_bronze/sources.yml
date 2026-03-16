@@ -1,0 +1,46 @@
+version: 2
+
+sources: 
+  - name: individuals
+    database: fhir
+    schema: individuals
+    tables:
+      - name: patient_events
+      - name: practitioner_events
+      - name: practitioner_role_events
+
+  - name: diagnostics
+    database: fhir
+    schema: diagnostics
+    tables:
+      - name: diagnostic_report_events
+      - name: observation_events
+
+  - name: documents
+    database: fhir
+    schema: documents
+    tables:
+      - name: document_reference_events
+
+  - name: entities
+    database: fhir
+    schema: entities
+    tables: 
+      - name: device_events
+      - name: location_events
+      - name: organization_events
+
+  - name: management
+    database: fhir
+    schema: management
+    tables:
+      - name: encounter_events
+
+  - name: medications
+    database: fhir
+    schema: medications
+    tables:
+      - name: immunization_events
+      - name: medication_request_events
+
+
