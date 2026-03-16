@@ -70,22 +70,25 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 
 4. Configure a virtual environment to install dbt-core and dbt-postgres packages
 
-5. Run some test queries in PSQL to understand json structure and start modeling data 
+5. Activate virtual environment for dbt by locating venv file path and running:
+  source bin/activate -> dbt debug (check your connection)
 
-6. Noted!
+6. Run some test queries in PSQL to understand json structure and start modeling data.
+
+7. Noted!
 	1. Need time to identify guaranteed nested json elements. CROSS JOIN VS LEFT JOIN ON TRUE. This pops up in the diagnosticReport file (results not present for non-lab reports)
 	2. As a result of this, and to keep tables from exploding for more complicated parsing downstream, I will dimensionalize the larger, nested objects (patient, diagnostics)
 
-7. Build bronze evironment
+8. Build bronze evironment
 	1. Since raw data has been ingested to PSQL source, extract relevant JSON fields and explode neccessary nested json items - incremental
 
-8. Build silver environment
+9. Build silver environment
     1. Largely intended to dedupe bronze enviromnent if needed and assign unique key values where approrpiate to inform merge ops on incremental models
     2. Some additional preparation for mart data
 
-9. Build mart environment
+10. Build mart environment
 	1. surface fact, child and dim tables to prompt answers to the questions posed by the case study
 	2. Build views that answer each question specifically. Please note, I would not take this approach if had a business intelligence tool that can surface the mart data holistically. The views are simply intended to ease readers in to the answers without having to go searching for them - strictly intended to answer questions neatly and quickly and determine what the logic is and every improvement
 
-10. Docoment models in schema files
+11. Docoment models in schema files
 	1. I will be documenting the models in a time-boxed format.
