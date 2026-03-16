@@ -6,6 +6,7 @@ SELECT
   lab.report_type_coding,
   lab.report_type,
   lab.report_issued_at,
+  lab.report_effective_at,
   lab.patient_id,
   CASE 
     WHEN ((LOWER(lab.report_type) LIKE '%lipid%')
@@ -14,7 +15,7 @@ SELECT
    OR (LOWER(lab.report_type) LIKE '%hdl%')) THEN TRUE 
     ELSE FALSE
   END AS had_chol_lab,
-  ROW_NUMBER() OVER(PARTITION BY lab.patient_id ORDER BY lab.report_issued_at DESC) AS chol_lab_order
+  ROW_NUMBER() OVER(PARTITION BY lab.patient_id ORDER BY lab.report_effective_at DESC) AS chol_lab_order
 
 FROM
   {{ ref('lab_reports_fct') }} lab
