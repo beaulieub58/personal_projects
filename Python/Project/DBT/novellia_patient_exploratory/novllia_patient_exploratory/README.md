@@ -94,7 +94,9 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 11. Docoment models in schema files
 	1. I will be documenting the models in a time-boxed format.
 
-12. Once schema file on gold/mart models are complete test your model with dbt build --full-refresh
+12. Some custom tests have been developed to validate some numerical values in the mart views. These are located in the test directory.
+
+13. Once schema file on gold/mart models are complete test your model with dbt build --full-refresh
 
 --- TRADEOFFS ---
 
@@ -109,6 +111,8 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 5. I am doing some row unpivotting -> pivotting in 2 separate models within the silver to account for coalesced column values and labels, especially in the patient data. If the number of column values increases, the query will have to account for those new column values, so pivotted rows are not missed downstream. There could be some alerting introduced for this
 
 6. I am using views to communicate answers to questions posed by the case. It is generaly bad practice to have a view list one row and one column of data. This is not something I would do in production, only in practice.
+
+7. If more time allotted, it would have been fun to explore more custom testing (they're called assertion files in GCP Dataform)
 
 --- LOOKING FORWARD (Additional FHIR Resources) ---
 
