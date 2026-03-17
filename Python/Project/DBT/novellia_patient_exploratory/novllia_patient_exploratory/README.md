@@ -1,7 +1,7 @@
 
-Initial Research And Documentation: 
+##Initial Research And Documentation: 
 
---- INTRO ---
+##--- INTRO ---
 
 The intended purpose of this ReadMe is to inform the reader of my approach to this case study and prepare junior/other senior engineers or analysts on the approach, should they want to replicate on their own PSQL/DBT instance.
 
@@ -14,7 +14,7 @@ The general approach is explained below, but summarized as follows:
 	3. Dedupe, unpivot, and pivot tables with unique key configurations (where needed), and prepare for mart objects
 	4. Create generalized data mart objects that would be useful for analytical querying and business intelligence tooling. Additionally, bespoke views will be created to answer the questions posed by the case study.
 
---- WORKING APPROACH --- 
+##--- WORKING APPROACH --- 
 
 Please see below a list of table and schema pairs that were matched by referencing FHIR documentation at this location: https://www.hl7.org/fhir/resourcelist.html
 
@@ -98,7 +98,7 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 
 13. Once schema file on gold/mart models are complete test your model with dbt build --full-refresh
 
---- TRADEOFFS ---
+##--- TRADEOFFS ---
 
 1. Instead of seeding the provided csv files directly in dbt, I sourced them from a local PSQL instance, which added time to my modeling process and added time in configuring the instance.
 
@@ -114,7 +114,7 @@ Please note, all tables placed under the Clinical - Summary object have been sub
 
 7. If more time allotted, it would have been fun to explore more custom testing (they're called assertion files in GCP Dataform)
 
---- LOOKING FORWARD (Additional FHIR Resources) ---
+##--- LOOKING FORWARD (Additional FHIR Resources) ---
 
 1. I would rather use the approach I did of storing the source data in psotgres tables ON THE ASSUMPTION that a direct intgregation could be created with FHIR data - to avoid having to replace seed csv's constantly
 
