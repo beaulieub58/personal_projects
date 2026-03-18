@@ -1,4 +1,5 @@
 dbt_venv/
 novellia_patient_exploratory/logs
 novllia_patient_exploratory/analyses
+dbt_project.yml
 
